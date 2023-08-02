@@ -86,6 +86,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   color: var(--text-color);
+  z-index: 9999999999999;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
