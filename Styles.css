@@ -416,6 +416,9 @@ button:hover {
 #edit-form label {
   color: var(--bg-color);
 }
+.hamberg{
+  display: none;
+}
 /* Animation keyframes */
 @keyframes fadeIn {
   from {
@@ -435,7 +438,20 @@ button:hover {
   .hamburger-menu {
     display: flex;
   }
-
+  .hamberg{
+    position: absolute;
+    right: 0px;
+    background-color: #000;
+    padding: 1rem;
+    width: 100%;
+    display: none;
+    transition-duration: 1s;
+    animation: fadeIn 1s;
+  }
+  .hamberg button{
+    width: 40%;
+    margin-left: 8%;
+  }
   .navbar.collapsed .navbar-links {
     display: flex;
     flex-direction: column;
@@ -473,4 +489,5 @@ button:hover {
   #toggle-add-task {
     display: block;
   }
+  
 }
