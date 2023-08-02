@@ -387,8 +387,15 @@ function hideAboutModal() {
 
 // Toggle navbar for mobile view
 function toggleNavbar() {
-  const navbarLinks = document.querySelector(".navbar-links");
-  navbarLinks.classList.toggle("collapsed");
+  const navbarLinks = document.querySelector(".hamberg");
+  navbarLinks.classList.toggle("collapsed"); // Toggle the "collapsed" class
+
+  // Show or hide the navbar links based on the presence of the "collapsed" class
+  if (navbarLinks.classList.contains("collapsed")) {
+    navbarLinks.style.display = "flex";
+  } else {
+    navbarLinks.style.display = "none";
+  }
 }
 
 // Show/hide "Add Task" menu when button is clicked
