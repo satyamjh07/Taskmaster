@@ -1,0 +1,460 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #0056b3;
+  --bg-color: rgb(246, 230, 230);
+  --text-color: #555;
+  --shadow-color: #000;
+  --font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+.navbar {
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  padding: 15px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  font-size: 35px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.navbar-links button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  margin-left: 20px;
+  width: auto;
+  transition: color 0.3s;
+}
+
+.navbar-links button:hover {
+  color: #f0f0f0;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger-menu div {
+  width: 30px;
+  height: 4px;
+  background-color: #fff;
+  margin: 6px 0;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--secondary-color);
+  padding: 20px;
+  border-radius: 5px;
+  color: var(--text-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: relative;
+  top: 10px;
+  right: 10px;
+  background-color: rgb(183, 35, 35);
+  font-size: 20px;
+  cursor: pointer;
+}
+.close-button:hover {
+  background-color: red;
+}
+
+#toggle-add-task {
+  display: none;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  box-shadow: 12px 12px 19px var(--shadow-color);
+}
+
+.left-panel {
+  flex: 1;
+  padding-right: 20px;
+}
+
+.left-panel h1 {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 32px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
+form label {
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+input[type="text"],
+input[type="date"],
+textarea,
+select,
+option {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--text-color);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  border: 2px solid white;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary-color);
+}
+
+.right-panel {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.right-panel h2 {
+  margin-top: 0;
+  color: var(--text-color);
+  font-size: 24px;
+}
+
+.task-list {
+  margin-top: 20px;
+}
+
+.task {
+  position: relative;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px var(--shadow-color);
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: slideInFromRight 0.5s;
+}
+
+.task:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.task.completed {
+  background-color: #f0f0f0;
+  color: #555;
+  text-decoration: line-through;
+}
+
+.task.deleted {
+  animation: slideOutToLeft 0.3s;
+  transform-origin: left;
+}
+.task:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  border-radius: 5px 0 0 5px;
+  background-color: var(--primary-color);
+}
+@keyframes slideOutToLeft {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+.task .details {
+  color: var(--text-color);
+  margin-left: 10px;
+}
+
+.task .details p {
+  margin: 5px 0;
+}
+
+.task .details .task-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  text-transform: uppercase;
+}
+
+.task .details .task-info {
+  font-size: 14px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 5px 10px;
+  margin: 4px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit-button:hover,
+.delete-button:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Action message styles */
+.action-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  z-index: 9999;
+  animation: slideInFromBottom 0.5s, fadeOut 0.5s 4s; /* Animation for showing and hiding the message */
+  opacity: 0; /* Start with opacity 0 to */
+}
+
+.task {
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.task:hover {
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.task.completed {
+  background-color: #f0f0f0;
+  color: #555;
+  text-decoration: line-through;
+}
+
+/* Add a slide-out animation for deleted tasks */
+.task.deleted {
+  animation: slideOutToLeft 0.3s;
+  transform-origin: left;
+}
+
+/* Animation keyframes */
+@keyframes slideOutToLeft {
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+.custom-alert {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 20px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  z-index: 9999;
+  animation: slideInFromTop 0.3s, fadeOut 0.3s 3s;
+}
+
+.custom-alert.show {
+  display: block;
+}
+
+/* Animation keyframes */
+@keyframes slideInFromTop {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 20px;
+  }
+}
+.checkbox-container input[type="checkbox"]{
+  border: 5px solid black;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 90%;
+}
+.task-details{
+  font-size: 15px;
+  font-weight: bold;
+  color: gray;
+}
+.task .details {
+  margin-left: 10px;
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.task .details p {
+  margin: 2px;
+}
+
+/* Add some animation to task item */
+.task {
+  animation: fadeIn 0.3s;
+}
+
+/* Updated CSS for edit-modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, -50%);
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  padding: 20px;
+  padding: 20px;
+  z-index: 99;
+  width: 30%;
+  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s;
+}
+.modal-content {
+  max-width: 500px;
+  color: var(--bg-color);
+  border: 2px solid black;
+}
+#edit-form label {
+  color: var(--bg-color);
+}
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /* transform: translateY(-10px); */
+  }
+  to {
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+}
+@media screen and (max-width: 768px) {
+  .navbar-links {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .navbar.collapsed .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .navbar.collapsed .navbar-links li {
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+
+  .navbar.collapsed .navbar-links li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Hide the "Add Task" menu in mobile view */
+  .left-panel {
+    display: none;
+  }
+  #toggle-add-task {
+    display: block;
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>taskMaster</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-brand" title="TaskMaster">taskMaster</div>
+      <div class="navbar-links">
+        <button id="toggle-dark-mode"  title="Enable dark Color">Toggle Dark Mode</button>
+        <button id="about-button" onclick="showAboutModal()" title="know more about this app">About</button>
+      </div>
+      <div class="hamburger-menu" onclick="toggleNavbar()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <div class="modal-container" id="modal-container">
+      <div class="modal-content">
+        <h2>About</h2>
+        <p>
+          Discover the power of efficient task management with our sleek To-Do
+          List web application. Stay organized, prioritize tasks, and conquer
+          your day with ease. Experience productivity redefined in a beautifully
+          designed and intuitive interface. Start today and take control of your
+          tasks like never before!
+        </p>
+        <button
+          class="close-button"
+          id="close-button"
+          onclick="hideAboutModal()"
+          title="close the about menu"
+        >
+          Close
+        </button>
+      </div>
+    </div>
+    <button id="toggle-add-task">Add Task</button>
+
+    <div class="add-task-container">
+      <div class="container">
+        <div class="left-panel">
+          <h1>To-Do List</h1>
+          <form id="task-form">
+            <label for="task">Task:</label>
+            <input type="text" id="task" required placeholder="Finish Presentation" />
+            <label for="priority">Priority:</label>
+            <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+            <label for="category">Category:</label>
+            <input type="text" id="category" required placeholder="Office Work"/>
+            <label for="endTime">End Time:</label>
+            <input type="date" id="endTime" />
+            <label for="notes">Additional Notes:</label>
+            <textarea id="notes" placeholder="Avoid silly mistakes in your presentation"></textarea>
+            <button
+              type="submit"
+              data-container="body"
+              data-toggle="popover"
+              data-placement="bottom"
+              title="This button let you add your tasks in the app."
+            >
+              Add Task
+            </button>
+          </form>
+        </div>
+        <div class="right-panel">
+          <h2>Your Tasks</h2>
+          <div class="task-list" id="task-list"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="edit-modal" class="modal">
+      <div class="modal-content">
+        <h2>Edit Task</h2>
+        <form id="edit-form">
+          <input type="hidden" id="edit-task-id" />
+          <label for="edit-task">Task:</label>
+          <input type="text" id="edit-task" required />
+          <label for="edit-priority">Priority:</label>
+          <select id="edit-priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+          <label for="edit-category">Category:</label>
+          <input type="text" id="edit-category" />
+          <label for="edit-endTime">End Time:</label>
+          <input type="datetime-local" id="edit-endTime" />
+          <label for="edit-notes">Additional Notes:</label>
+          <textarea id="edit-notes"></textarea>
+          <button type="submit">Save Changes</button>
+          <button type="button" id="close-modal">Close</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="custom-alert" id="custom-alert">
+      <p id="custom-alert-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
