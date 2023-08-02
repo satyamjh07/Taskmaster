@@ -375,7 +375,7 @@ button:hover {
   animation: fadeIn 0.3s;
 }
 
-/* Updated CSS for edit-modal */
+/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -386,17 +386,33 @@ button:hover {
   background-color: #f9f9f9;
   border-radius: 10px;
   padding: 20px;
-  padding: 20px;
   z-index: 99;
   width: 30%;
   box-shadow: 0 12px 15px rgba(0, 0, 0, 0.2);
   animation: fadeIn 0.3s;
 }
+
+/* Add media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .modal {
+    width: 80%;
+  }
+}
+
+/* Add media query for even smaller screens */
+@media screen and (max-width: 480px) {
+  .modal {
+    width: 90%;
+  }
+}
+
+/* Modal content */
 .modal-content {
   max-width: 500px;
   color: var(--bg-color);
   border: 2px solid black;
 }
+
 #edit-form label {
   color: var(--bg-color);
 }
