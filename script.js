@@ -413,3 +413,5 @@ document
 document
   .getElementById("toggle-dark-mode")
   .addEventListener("click", toggleDarkMode);
+
+console.log("Welcome to taskMaster");
