@@ -385,11 +385,6 @@ function hideAboutModal() {
   modalContainer.style.display = "none";
 }
 
-function toggleNavbar() {
-  const navbar = document.querySelector(".navbar");
-  navbar.classList.toggle("collapsed");
-}
-
 // Toggle navbar for mobile view
 function toggleNavbar() {
   const navbarLinks = document.querySelector(".navbar-links");
